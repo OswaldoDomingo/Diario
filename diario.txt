@@ -1,7 +1,0 @@
-29-04-2025|Nota actual 1
-29-04-2025|Nota con fecha automática
-29-04-2025|La entrada fantasma
-29-04-2025|Nota de prueba
-29-04-2025|A 2 minutos del día 30
-30-04-2025|Ya es dá 30
-01-05-2025|Nota binaria
