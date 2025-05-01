@@ -1,10 +1,22 @@
 diario.dat
 diario.txt
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
 
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+
+# Archivos de configuración de IntelliJ IDEA
+.idea/
+*.iml
+
+# Directorios de compilación de Java
+/out/
 
 ### Eclipse ###
 .apt_generated
@@ -30,3 +42,5 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+### Mac OS - Linux###
+.*~
