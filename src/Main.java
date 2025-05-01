@@ -34,6 +34,7 @@ public class Main {
     //Menu
     public static void menu() {
         System.out.println("1. Añadir entrada");
+        System.out.println("1. Añadir entrada Binaria");
         System.out.println("2. Ver entradas");
         System.out.println("3. Salir");
     }
@@ -61,37 +62,41 @@ public class Main {
     }
 
     //Método para añadir una entrada
-    public static void nuevaEntrada(){
+    public static void nuevaEntrada() {
         Scanner scanner = new Scanner(System.in);
         String fecha = "";
         String nota = "";
         int opcion = 0;
 
-        System.out.println("Introduce la fecha a mano (1) o la fecha actual (2):");
-        opcion = scanner.nextInt();
-        scanner.nextLine(); // Limpiar el buffer
+        do {
+            System.out.println("Introduce la fecha a mano (1) o la fecha actual (2):");
+            opcion = scanner.nextInt();
+            scanner.nextLine(); // Limpiar el buffer
 
-        if(opcion == 1) {
-            System.out.println("Introduce la fecha manualmente:");
-            fecha = scanner.nextLine();
-        } else if(opcion == 2) {
-            fecha = GestionFechas.obtenerFecha();
+            if (opcion == 1) {
+                System.out.println("Introduce la fecha manualmente:");
+                fecha = scanner.nextLine();
+            } else if (opcion == 2) {
+                fecha = GestionFechas.obtenerFecha();
 
-        } else {
-            System.out.println("Opción no válida");
-            return;
-        }
+            } else {
+                System.out.println("Opción no válida");
+                return;
+            }
 
-        System.out.println("Introduce la nota:");
-        nota = scanner.nextLine();
+            System.out.println("Introduce la nota:");
+            nota = scanner.nextLine();
 
 
-        ArrayList<NuevaEntrada> entrada= new ArrayList<>();
-        NuevaEntrada nuevaEntrada = new NuevaEntrada(fecha, nota);
+            ArrayList<NuevaEntrada> entrada = new ArrayList<>();
+            NuevaEntrada nuevaEntrada = new NuevaEntrada(fecha, nota);
 
-        entrada.add(nuevaEntrada);
+            entrada.add(nuevaEntrada);
 
-        GestionFicheros.escribirFichero(nuevaEntrada);
+            GestionFicheros.escribirFichero(nuevaEntrada);
+            GestionFicherosBin.escribirFicheroArray(nuevaEntrada);
+        }while (opcion != 3) ;
+
 
     }
 

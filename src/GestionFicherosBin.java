@@ -20,32 +20,39 @@ public class GestionFicherosBin  implements Serializable {
         }
     }
 
-    //Método que lee el fichero y devuelve un ArrayList con objetos NuevaEntrada
-    public static void escribirFicheroArray(NuevaEntrada entrada) throws FileNotFoundException {
+    //Método que lee entrada y devuelve un ArrayList con objetos NuevaEntrada
+    public static void escribirFicheroArray(NuevaEntrada entrada) {
+        // Comprobar que la entrada no es nula
+        if (entrada == null) {
+            System.out.println("La entrada no puede ser nula.");
+            return;
+        }
 
         String fichero = "diario.dat";
-        // Crear un ArrayList de tipo NuevaEntrada
+
+        // Leer el ArrayList existente del fichero (o uno nuevo si no existe)
         ArrayList<NuevaEntrada> diario = leerFichero();
 
-        if(ficheroVacio(fichero)) {
+        // Añadir la nueva entrada al ArrayList
+        diario.add(entrada);
 
-            try (ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(fichero, true))) {
-                oss.writeObject(entrada);
-                System.out.println("Entrada guardada correctamente en el fichero binario.");
-
-            } catch (Exception e) {
-                System.out.println("Error al escribir en el fichero: " + e.getMessage());
-
-            }
-        } else {
-            // Si el fichero no está vacío, se añade la nueva entrada al ArrayList
+        // Escribir TODO el ArrayList en el fichero (sobrescribiendo)
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero))) {
+            oos.writeObject(diario);  // Guardamos la lista completa, no objetos individuales
+            System.out.println("Entrada guardada correctamente en el fichero binario.");
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el fichero: " + e.getMessage());
         }
     }
 
+
     //Método para comprobar si el fichero está vacío o no
+    // Método que verifica si un fichero está vacío
     public static boolean ficheroVacio(String nombreFichero) {
+        // Crea un objeto File con el nombre del fichero proporcionado
         File file = new File(nombreFichero);
-        return file.length() == 0;
+        // Devuelve true si el tamaño del fichero es 0 (está vacío), de lo contrario devuelve false
+        return file.exists() && file.length() == 0;
     }
 
     public static ArrayList<NuevaEntrada> leerFichero() {
@@ -57,9 +64,17 @@ public class GestionFicherosBin  implements Serializable {
         ArrayList<NuevaEntrada> diario = new ArrayList<>();
 
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero))){
-
-        }catch (IOException e){
+            diario = (ArrayList<NuevaEntrada>) ois.readObject();
+        } catch (FileNotFoundException e) {
+            // Si el fichero no existe, devolvemos una lista vacía
+            System.out.println("El fichero no existe. Se creará al guardar una entrada.");
+        } catch (EOFException e) {
+            // Si el fichero está vacío, devolvemos una lista vacía
+            System.out.println("El fichero está vacío.");
+        } catch (IOException | ClassNotFoundException e) {
+            // Otras excepciones durante la lectura
             System.out.println("Error al leer el fichero: " + e.getMessage());
         }
+        return diario;
     }
 }
