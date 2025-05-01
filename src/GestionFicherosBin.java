@@ -38,7 +38,7 @@ public class GestionFicherosBin  implements Serializable {
 
             }
         } else {
-
+            // Si el fichero no está vacío, se añade la nueva entrada al ArrayList
         }
     }
 
