@@ -34,7 +34,6 @@ public class Main {
     //Menu
     public static void menu() {
         System.out.println("1. Añadir entrada");
-        System.out.println("1. Añadir entrada Binaria");
         System.out.println("2. Ver entradas");
         System.out.println("3. Salir");
     }
@@ -104,6 +103,12 @@ public class Main {
     public static void verEntradas(){
         ArrayList<NuevaEntrada> entradas = GestionFicheros.leerDiarioGuardarObjetos();
         for(NuevaEntrada e : entradas) {
+            System.out.println(e.toString());
+        }
+        //Ver entradas del fichero binario
+        System.out.println("Entradas del fichero binario:");
+        ArrayList<NuevaEntrada> entradasBin = GestionFicherosBin.leerFichero();
+        for(NuevaEntrada e : entradasBin) {
             System.out.println(e.toString());
         }
     }
