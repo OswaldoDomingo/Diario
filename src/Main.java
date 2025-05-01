@@ -99,7 +99,7 @@ public class Main {
 
     }
 
-    //Método para ver las entradas
+    //Método para ver las entradas 
     public static void verEntradas(){
         ArrayList<NuevaEntrada> entradas = GestionFicheros.leerDiarioGuardarObjetos();
         for(NuevaEntrada e : entradas) {
