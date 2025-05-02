@@ -1,5 +1,6 @@
 diario.dat
 diario.txt
+id.txt
 *.log
 *.tmp
 *.swp

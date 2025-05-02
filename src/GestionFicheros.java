@@ -53,10 +53,11 @@ public class GestionFicheros {
             if(!fichero.isEmpty()) {
                 while ((linea = br.readLine()) != null) {
                     String[] partes = linea.split("\\|");
-                    String fecha = partes[0];
-                    String nota = partes[1];
-                    //Crear un objeto NuevaEntrada con los datos leidos
-                    NuevaEntrada entrada = new NuevaEntrada(fecha, nota);
+                    String id = partes[0];
+                    String fecha = partes[1];
+                    String nota = partes[2];
+                    // ✅ Usamos el constructor con ID
+                    NuevaEntrada entrada = new NuevaEntrada(Integer.parseInt(id), fecha, nota);
                     diario.add(entrada);
                 }
             } else if (diario.isEmpty()) {
