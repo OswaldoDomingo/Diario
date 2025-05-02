@@ -1,7 +1,7 @@
-import java.security.DigestOutputStream;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.ArrayList;
+
 
 public class Main {
 
@@ -63,9 +63,9 @@ public class Main {
     //Método para añadir una entrada
     public static void nuevaEntrada() {
         Scanner scanner = new Scanner(System.in);
-        String fecha = "";
-        String nota = "";
-        int opcion = 0;
+        String fecha;
+        String nota;
+        int opcion;
 
         do {
             System.out.println("Introduce la fecha a mano (1) o la fecha actual (2):");
@@ -99,7 +99,7 @@ public class Main {
 
     }
 
-    //Método para ver las entradas 
+    //Método para ver las entradas
     public static void verEntradas(){
         ArrayList<NuevaEntrada> entradas = GestionFicheros.leerDiarioGuardarObjetos();
         for(NuevaEntrada e : entradas) {
