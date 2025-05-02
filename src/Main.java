@@ -6,26 +6,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        menu();
-        try {
-            opciones();
+        Scanner scanner = new Scanner(System.in);
+        int opcion = 0;
 
-
-            //tenemos leer el fichero que nos lo pone en un arrayList tipo String
-            //ArrayList<String> diario = GestionFicheros.leerDiario();
-            //ahora tenemos que recorrer el arrayList y pasarlo a un arrayList de tipo NuevaEntrada
-            //for(String e : diario) {
-            //System.out.println(e);
-            //    }
-
-            //Vamos a leer el fichero,, convertirlo en un array de objetos NuevaEntrada y recorres el array
-
-        }catch (Exception e){
-            System.out.println("Error vamos a intentarlo de nuevo.");
+        do {
             menu();
-            opciones();
+            opcion = scanner.nextInt();
+            scanner.nextLine(); // Limpiar el buffer
 
-        }
+            opciones(opcion); // Le pasamos la opción seleccionada
+        } while (opcion != 3);
     }
 
 
@@ -38,10 +28,7 @@ public class Main {
         System.out.println("3. Salir");
     }
     //Método para elegir la opción
-    public static void opciones() {
-        Scanner scanner = new Scanner(System.in);
-        int opcion = scanner.nextInt();
-        scanner.nextLine(); // Limpiar el buffer
+    public static void opciones(int opcion) {
 
         switch (opcion) {
             case 1:
@@ -55,8 +42,7 @@ public class Main {
                 break;
             default:
                 System.out.println("Opción no válida");
-                menu();
-                opciones();
+                break;
         }
     }
 
@@ -67,37 +53,40 @@ public class Main {
         String nota;
         int opcion;
 
-        do {
-            System.out.println("Introduce la fecha a mano (1) o la fecha actual (2):");
-            opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
+        System.out.println("Introduce la fecha a mano (1) o la fecha actual (2):");
+        opcion = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el buffer
+        boolean correcto = false;
 
-            if (opcion == 1) {
-                System.out.println("Introduce la fecha manualmente:");
+        if (opcion == 1) {
+            do {
+                System.out.println("Introduce la fecha manualmente (dd-MM-yyyy):");
                 fecha = scanner.nextLine();
-            } else if (opcion == 2) {
-                fecha = GestionFechas.obtenerFecha();
+                if (GestionFechas.comprobarFormatoFecha(fecha)) {
+                    correcto = true;
+                } else {
+                    System.out.println("Formato de fecha incorrecto. Por favor, introduce la fecha en el formato dd-MM-yyyy.");
+                }
+            } while (!correcto);
+        } else if (opcion == 2) {
+            fecha = GestionFechas.obtenerFecha();
+        } else {
+            System.out.println("Opción no válida");
+            return;
+        }
 
-            } else {
-                System.out.println("Opción no válida");
-                return;
-            }
+        System.out.println("Introduce la nota:");
+        nota = scanner.nextLine();
 
-            System.out.println("Introduce la nota:");
-            nota = scanner.nextLine();
+        ArrayList<NuevaEntrada> entrada = new ArrayList<>();
+        NuevaEntrada nuevaEntrada = new NuevaEntrada(fecha, nota);
 
+        entrada.add(nuevaEntrada);
 
-            ArrayList<NuevaEntrada> entrada = new ArrayList<>();
-            NuevaEntrada nuevaEntrada = new NuevaEntrada(fecha, nota);
-
-            entrada.add(nuevaEntrada);
-
-            GestionFicheros.escribirFichero(nuevaEntrada);
-            GestionFicherosBin.escribirFicheroArray(nuevaEntrada);
-        }while (opcion != 3) ;
-
-
+        GestionFicheros.escribirFichero(nuevaEntrada);
+        GestionFicherosBin.escribirFicheroArray(nuevaEntrada);
     }
+
 
     //Método para ver las entradas
     public static void verEntradas(){
