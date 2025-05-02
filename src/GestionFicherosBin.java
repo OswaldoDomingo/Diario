@@ -55,14 +55,16 @@ public class GestionFicherosBin  implements Serializable {
         return file.exists() && file.length() == 0;
     }
 
+    //Método que lee el fichero y devuelve un ArrayList con objetos NuevaEntrada
     public static ArrayList<NuevaEntrada> leerFichero() {
         //Leer el fichero donde están guardados los datos
         //Crear un ArrayList de tipo NuevaEntrada
 
-        String fichero = "diario.dat";
-        NuevaEntrada entrada;
-        ArrayList<NuevaEntrada> diario = new ArrayList<>();
+        String fichero = "diario.dat"; // Nombre del fichero binario
+        NuevaEntrada entrada; // Declaración de la variable entrada
+        ArrayList<NuevaEntrada> diario = new ArrayList<>();  // Inicialización del ArrayList
 
+        //Escribir el fichero en el ArrayList
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero))){
             diario = (ArrayList<NuevaEntrada>) ois.readObject();
         } catch (FileNotFoundException e) {
@@ -75,6 +77,7 @@ public class GestionFicherosBin  implements Serializable {
             // Otras excepciones durante la lectura
             System.out.println("Error al leer el fichero: " + e.getMessage());
         }
+        // Devolvemos el ArrayList con las entradas leídas
         return diario;
     }
 }
