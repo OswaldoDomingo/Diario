@@ -6,6 +6,7 @@ id.txt
 *.swp
 *.swo
 *.bak
+/lib
 
 ### IntelliJ IDEA ###
 out/
