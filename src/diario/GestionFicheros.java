@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 public class GestionFicheros {
 
     //Método recibe una entrada y la escribe en el fichero
