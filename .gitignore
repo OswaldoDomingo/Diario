@@ -1,6 +1,6 @@
-diario.dat
-diario.txt
-id.txt
+src/diario/diario.dat
+src/diario/diario.txt
+src/diario/id.txt
 *.log
 *.tmp
 *.swp
