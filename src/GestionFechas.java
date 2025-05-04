@@ -1,6 +1,8 @@
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.zip.DataFormatException;
 
 public class GestionFechas {
 
@@ -23,4 +25,14 @@ public class GestionFechas {
         }
     }
 
+    //Método para convertir yna fecha String a LocalDate
+    public static LocalDate convertirStringALocalDate(String fecha) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        try {
+            return LocalDate.parse(fecha, formatter);
+        } catch (DateTimeParseException e) {
+            System.out.println("Formato de fecha inválido: " + fecha);
+            return null;
+        }
+    }
 }
