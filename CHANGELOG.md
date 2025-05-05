@@ -14,10 +14,11 @@ y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
 - Cabecera incluida en el CSV: `ID;Fecha;Nota`.
 - Separador `;` usado para compatibilidad con Excel (configuración regional en español).
 - Soporte de salto de línea por entrada y formato de texto escapado cuando sea necesario.
-
+- Borrado del archivo CSV al tiempo del TXT
+- 
 ### 🧹 Cambiado
 - El método `pasarDeBinarioATexto()` ahora también genera un fichero `diario.csv` además del `diario.txt`.
-
+- El método `borrarArchivoTexto` ahora también elimina el archivo CSV.
 ---
 
 ## [1.0.0] - 2025-05-05

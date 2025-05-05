@@ -12,7 +12,7 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 - 🔁 **Lectura de entradas**: Se pueden visualizar todas las entradas almacenadas en el archivo binario.
 - 📤 **Exportar a texto**: Conversión del archivo binario a un archivo de texto (`diario.txt`).
 - 📊 **Exportar a CSV (`diario.csv`)**: Se genera un archivo CSV con separador `;` para fácil apertura en Excel o Google Sheets. Incluye cabecera y soporte para campos con texto largo.
-- 📂 **Lectura y eliminación del archivo de texto**: Visualización o borrado manual del archivo exportado.
+- 📂 **Lectura y eliminación de los archivos TXT y CSV**: Visualización o borrado manual de los archivos exportados.
 - 🧪 **Pruebas unitarias con JUnit**: Test de exportación implementado (`GestionFicherosBinTest`, `GestionFechasTest`).
 
 ---

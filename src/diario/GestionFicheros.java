@@ -104,17 +104,19 @@ public class GestionFicheros {
     //Método para borrar el archivo de texto
     public static void borrarArchivoTexto() {
         String ficheroTexto = "diario.txt";
+        String ficheroCSV= "diario.csv";
         File archivo = new File(ficheroTexto);
+        File archivoCSV = new File(ficheroCSV);
 
         if (!archivo.exists()) {
             System.out.println("El archivo de texto no existe.");
             return;
         }
 
-        if (archivo.delete()) {
-            System.out.println("Archivo de texto borrado correctamente.");
+        if (archivo.delete() && archivoCSV.delete()) {
+            System.out.println("Archivo de texto y CSV borrados correctamente.");
         } else {
-            System.out.println("No se pudo borrar el archivo de texto.");
+            System.out.println("No se pudo borrar algún archivo.");
         }
     }
 }
