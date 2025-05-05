@@ -24,13 +24,18 @@ public class Main {
 
     //Menu
     public static void menu() {
+        System.out.println("*************************************");
         System.out.println("1. Añadir entrada");
         System.out.println("2. Ver entradas");
         System.out.println("3. Salir");
+        System.out.println("4. Exportar binario a texto");
+        System.out.println("5. Leer archivo de texto generado");
+        System.out.println("6. Borrar archivo de texto");
+        System.out.println("*************************************");
     }
     //Método para elegir la opción
     public static void opciones(int opcion) {
-
+        System.out.println("*************************************");
         switch (opcion) {
             case 1:
                 nuevaEntrada();
@@ -41,10 +46,23 @@ public class Main {
             case 3:
                 System.out.println("Saliendo...");
                 break;
+            case 4:
+                System.out.println("Crear diario a texto");
+                GestionFicherosBin.pasarDeBinarioATexto();
+                break;
+            case 5:
+                System.out.println("Leer diario formato texto");
+                GestionFicheros.leerFicheroTexto();
+                break;
+            case 6:
+                System.out.println("Borrar diario formato texto");
+                GestionFicheros.borrarArchivoTexto();
+                break;
             default:
                 System.out.println("Opción no válida");
                 break;
         }
+        System.out.println("*************************************");
     }
 
     //Método para añadir una entrada
@@ -84,17 +102,18 @@ public class Main {
 
         entrada.add(nuevaEntrada);
 
-        GestionFicheros.escribirFichero(nuevaEntrada);
+        //GestionFicheros.escribirFichero(nuevaEntrada);
         GestionFicherosBin.escribirFicheroArray(nuevaEntrada);
     }
 
 
     //Método para ver las entradas
     public static void verEntradas(){
-        ArrayList<NuevaEntrada> entradas = GestionFicheros.leerDiarioGuardarObjetos();
-        for(NuevaEntrada e : entradas) {
-            System.out.println(e.toString());
-        }
+       // ArrayList<NuevaEntrada> entradas = GestionFicheros.leerDiarioGuardarObjetos();
+       // for(NuevaEntrada e : entradas) {
+        //   System.out.println(e.toString());
+        // }
+
         //Ver entradas del fichero binario
         System.out.println("Entradas del fichero binario:");
         ArrayList<NuevaEntrada> entradasBin = GestionFicherosBin.leerFichero();

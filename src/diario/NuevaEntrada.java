@@ -47,10 +47,10 @@ public class NuevaEntrada implements Serializable {
     }
 
 
-    @Override
-    public String toString() {
-        return id + "|" + fecha + "|" + nota;
-    }
+    //@Override
+    //public String toString() {
+    //    return id + "|" + fecha + "|" + nota;
+    //}
 
     public static int ultimaEntrada() {
             // Leer el fichero donde está el último número
@@ -76,6 +76,9 @@ public class NuevaEntrada implements Serializable {
 
             return nuevoId;
         }
-
+@Override
+    public String toString() {
+        return id + "|" + fecha + "|" + nota;
+    }
 
 }

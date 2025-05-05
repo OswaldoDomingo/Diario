@@ -1,16 +1,17 @@
 package diario;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 
 public class GestionFicheros {
-
+ /*
+    //********************************************************************************************
+    //Por la nueva funcionalidad de escribir todo el fichero bin a txt, esta clase casi ya no es necesaria
+    // se ha hecho el método leerFicheroTexto() para leer el fichero de texto cuando se genere.
+    //********************************************************************************************
     //Método recibe una entrada y la escribe en el fichero
+
     public static void escribirFichero(NuevaEntrada entrada) {
         String fichero = "diario.txt";
 
@@ -23,6 +24,7 @@ public class GestionFicheros {
         }
 
     }
+
 
     //Método que lee el fichero y devuelve un ArrayList con el contenido
     public static ArrayList<String> leerDiario(){
@@ -73,4 +75,46 @@ public class GestionFicheros {
 
     }
 
+    */
+
+    public static void leerFicheroTexto() {
+        String ficheroTexto = "diario.txt";
+        File fichero = new File(ficheroTexto);
+
+        if (!fichero.exists()) {
+            System.out.println();
+            System.out.println("******************************");
+            System.out.println("El fichero de texto no existe.");
+            System.out.println("******************************");
+            System.out.println();
+
+            return;
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                System.out.println(linea);
+            }
+        } catch (IOException e) {
+            System.out.println("Error al leer el fichero de texto: " + e.getMessage());
+        }
+    }
+
+    //Método para borrar el archivo de texto
+    public static void borrarArchivoTexto() {
+        String ficheroTexto = "diario.txt";
+        File archivo = new File(ficheroTexto);
+
+        if (!archivo.exists()) {
+            System.out.println("El archivo de texto no existe.");
+            return;
+        }
+
+        if (archivo.delete()) {
+            System.out.println("Archivo de texto borrado correctamente.");
+        } else {
+            System.out.println("No se pudo borrar el archivo de texto.");
+        }
+    }
 }

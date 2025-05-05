@@ -28,7 +28,14 @@ public class GestionFechas {
 
     //Método para convertir yna fecha String a LocalDate
     public static LocalDate convertirStringALocalDate(String fecha) {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        // Comprobamos si el string es null o está vacío
+        if (fecha == null || fecha.trim().isEmpty()) {
+            System.out.println("Fecha nula o vacía");
+            return null;
+        }
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
         try {
             return LocalDate.parse(fecha, formatter);
         } catch (DateTimeParseException e) {
@@ -36,4 +43,5 @@ public class GestionFechas {
             return null;
         }
     }
+
 }

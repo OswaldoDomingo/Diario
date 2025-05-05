@@ -63,7 +63,7 @@ public class GestionFicherosBin  implements Serializable {
         //Crear un ArrayList de tipo NuevaEntrada
 
         String fichero = "diario.dat"; // Nombre del fichero binario
-        NuevaEntrada entrada; // Declaración de la variable entrada
+        //NuevaEntrada entrada; // Declaración de la variable entrada
         ArrayList<NuevaEntrada> diario = new ArrayList<>();  // Inicialización del ArrayList
 
         //Escribir el fichero en el ArrayList
@@ -82,4 +82,38 @@ public class GestionFicherosBin  implements Serializable {
         // Devolvemos el ArrayList con las entradas leídas
         return diario;
     }
+
+    // Método para leer el fichero binario y escribir su contenido en un fichero de texto
+    public static void pasarDeBinarioATexto() {
+        String ficheroTexto = "diario.txt";     // Fichero de salida
+        String ficheroBinario = "diario.dat";   // Fichero de entrada
+
+        try (
+                // Crear ObjectInputStream para leer objetos
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ficheroBinario));
+                // Crear BufferedWriter para escribir texto
+                BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroTexto))
+        ) {
+            // Leemos la lista de entradas desde el fichero binario
+            ArrayList<NuevaEntrada> listaEntradas = (ArrayList<NuevaEntrada>) ois.readObject();
+
+            // Escribimos cada entrada en el fichero de texto
+            for (NuevaEntrada entrada : listaEntradas) {
+                bw.write(entrada.toString());
+                bw.newLine(); // salto de línea
+            }
+
+            System.out.println("El fichero de texto se ha generado correctamente.");
+
+        } catch (FileNotFoundException e) {
+            System.out.println("No se encontró el fichero binario: " + ficheroBinario);
+        } catch (EOFException e) {
+            System.out.println("El fichero binario está vacío.");
+        } catch (IOException e) {
+            System.out.println("Error de lectura/escritura: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("Clase no encontrada al leer objeto: " + e.getMessage());
+        }
+    }
+
 }
