@@ -80,5 +80,9 @@ public class NuevaEntrada implements Serializable {
     public String toString() {
         return id + "|" + fecha + "|" + nota;
     }
+    // Método para exportar a csv
+    public String toCSV() {
+        return id + ";" + fecha + ";" + nota;
+    }
 
 }

@@ -1,4 +1,3 @@
-
 # 📔 Diario Personal en Java
 
 Este proyecto es una aplicación de diario personal desarrollada en Java. Su objetivo principal es permitir registrar anotaciones personales de forma sencilla y persistente, utilizando archivos binarios para almacenar las entradas.
@@ -12,6 +11,7 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 - 💾 **Almacenamiento binario (`diario.dat`)**: Las entradas se guardan de forma segura mediante serialización de objetos.
 - 🔁 **Lectura de entradas**: Se pueden visualizar todas las entradas almacenadas en el archivo binario.
 - 📤 **Exportar a texto**: Conversión del archivo binario a un archivo de texto (`diario.txt`).
+- 📊 **Exportar a CSV (`diario.csv`)**: Se genera un archivo CSV con separador `;` para fácil apertura en Excel o Google Sheets. Incluye cabecera y soporte para campos con texto largo.
 - 📂 **Lectura y eliminación del archivo de texto**: Visualización o borrado manual del archivo exportado.
 - 🧪 **Pruebas unitarias con JUnit**: Test de exportación implementado (`GestionFicherosBinTest`, `GestionFechasTest`).
 
@@ -95,3 +95,4 @@ Consulta el archivo `LICENSE` si decides añadirlo en el futuro.
 
 ✅ En uso — desarrollo activo.  
 🛠️ En evolución — nuevas funcionalidades en planificación.
+

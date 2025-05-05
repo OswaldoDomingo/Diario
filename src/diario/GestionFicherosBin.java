@@ -87,20 +87,28 @@ public class GestionFicherosBin  implements Serializable {
     public static void pasarDeBinarioATexto() {
         String ficheroTexto = "diario.txt";     // Fichero de salida
         String ficheroBinario = "diario.dat";   // Fichero de entrada
+        String ficheroCSV = "diario.csv";     // Fichero CSV de salida
 
         try (
                 // Crear ObjectInputStream para leer objetos
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ficheroBinario));
                 // Crear BufferedWriter para escribir texto
-                BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroTexto))
+                BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroTexto));
+                BufferedWriter bwcsv = new BufferedWriter(new FileWriter(ficheroCSV))
+
         ) {
             // Leemos la lista de entradas desde el fichero binario
             ArrayList<NuevaEntrada> listaEntradas = (ArrayList<NuevaEntrada>) ois.readObject();
 
             // Escribimos cada entrada en el fichero de texto
+            // y en el fichero CSV
+            bwcsv.write("ID;Fecha;Nota");
+            bwcsv.newLine();
             for (NuevaEntrada entrada : listaEntradas) {
                 bw.write(entrada.toString());
+                bwcsv.write(entrada.toCSV());
                 bw.newLine(); // salto de línea
+                bwcsv.newLine();
             }
 
             System.out.println("El fichero de texto se ha generado correctamente.");
