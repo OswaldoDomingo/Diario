@@ -14,6 +14,8 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 - 📊 **Exportar a CSV (`diario.csv`)**: Se genera un archivo CSV con separador `;` para fácil apertura en Excel o Google Sheets. Incluye cabecera y soporte para campos con texto largo.
 - 📂 **Lectura y eliminación de los archivos TXT y CSV**: Visualización o borrado manual de los archivos exportados.
 - 🧪 **Pruebas unitarias con JUnit**: Test de exportación implementado (`GestionFicherosBinTest`, `GestionFechasTest`).
+- 🔍 **Búsqueda de entradas por palabra clave y fecha**: Desde el menú se puede buscar fácilmente contenido específico.
+- 🧼 **Validación de entradas**: Control de errores de entrada para evitar fallos con datos incorrectos.
 
 ---
 

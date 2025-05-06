@@ -1,113 +1,140 @@
 package diario;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.List;
 
-public class GestionFicherosBin  implements Serializable {
+public class GestionFicherosBin implements Serializable {
 
-
-    public static void escribirFicheroClase(NuevaEntrada entrada) {
-        // Define el nombre del fichero binario donde se guardarán los datos
-        String fichero = "diario.dat";
-
-        // Intenta abrir un flujo de salida para escribir objetos en el fichero
-        try (ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(fichero, true))) {
-            // Escribe el objeto `entrada` en el fichero
-            oss.writeObject(entrada);
-            // Muestra un mensaje indicando que la entrada se guardó correctamente
-            System.out.println("Entrada guardada correctamente en el fichero binario.");
-        } catch (Exception e) {
-            // Captura cualquier excepción y muestra un mensaje de error
-            System.out.println("Error al escribir en el fichero: " + e.getMessage());
-        }
-    }
-
-    //Método que lee entrada y devuelve un ArrayList con objetos NuevaEntrada
-    public static void escribirFicheroArray(NuevaEntrada entrada) {
-        // Comprobar que la entrada no es nula
+    // Escribe una entrada en el fichero binario (modo lista completa)
+    public static void escribirFicheroArray(NuevaEntrada entrada, String nombreFichero) {
         if (entrada == null) {
             System.out.println("La entrada no puede ser nula.");
             return;
         }
 
-        String fichero = "diario.dat";
+        String fichero = (nombreFichero == null || nombreFichero.isEmpty()) ? "diario.dat" : nombreFichero;
 
-        // Leer el ArrayList existente del fichero (o uno nuevo si no existe)
-        ArrayList<NuevaEntrada> diario = leerFichero();
-
-        // Añadir la nueva entrada al ArrayList
+        ArrayList<NuevaEntrada> diario = leerFichero(fichero);
         diario.add(entrada);
 
-        // Escribir TODO el ArrayList en el fichero (sobrescribiendo)
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero))) {
-            oos.writeObject(diario);  // Guardamos la lista completa, no objetos individuales
-            System.out.println("Entrada guardada correctamente en el fichero binario.");
+            oos.writeObject(diario);
+            System.out.println("Entrada guardada correctamente en el fichero binario: " + fichero);
         } catch (IOException e) {
             System.out.println("Error al escribir en el fichero: " + e.getMessage());
         }
     }
 
+    // Lee un fichero binario y devuelve una lista de entradas
+    public static ArrayList<NuevaEntrada> leerFichero(String nombreFichero) {
+        ArrayList<NuevaEntrada> diario = new ArrayList<>();
+        String fichero = (nombreFichero == null || nombreFichero.isEmpty()) ? "diario.dat" : nombreFichero;
 
-    //Método para comprobar si el fichero está vacío o no
-    // Método que verifica si un fichero está vacío
-    public static boolean ficheroVacio(String nombreFichero) {
-        // Crea un objeto File con el nombre del fichero proporcionado
-        File file = new File(nombreFichero);
-        // Devuelve true si el tamaño del fichero es 0 (está vacío), de lo contrario devuelve false
-        return file.exists() && file.length() == 0;
-    }
-
-    //Método que lee el fichero y devuelve un ArrayList con objetos NuevaEntrada
-    public static ArrayList<NuevaEntrada> leerFichero() {
-        //Leer el fichero donde están guardados los datos
-        //Crear un ArrayList de tipo NuevaEntrada
-
-        String fichero = "diario.dat"; // Nombre del fichero binario
-        //NuevaEntrada entrada; // Declaración de la variable entrada
-        ArrayList<NuevaEntrada> diario = new ArrayList<>();  // Inicialización del ArrayList
-
-        //Escribir el fichero en el ArrayList
-        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero))){
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichero))) {
             diario = (ArrayList<NuevaEntrada>) ois.readObject();
         } catch (FileNotFoundException e) {
-            // Si el fichero no existe, devolvemos una lista vacía
-            System.out.println("El fichero no existe. Se creará al guardar una entrada.");
+            System.out.println("El fichero no existe: " + fichero);
         } catch (EOFException e) {
-            // Si el fichero está vacío, devolvemos una lista vacía
-            System.out.println("El fichero está vacío.");
+            System.out.println("El fichero está vacío: " + fichero);
         } catch (IOException | ClassNotFoundException e) {
-            // Otras excepciones durante la lectura
             System.out.println("Error al leer el fichero: " + e.getMessage());
         }
-        // Devolvemos el ArrayList con las entradas leídas
+
         return diario;
     }
 
-    // Método para leer el fichero binario y escribir su contenido en un fichero de texto
+    // Busca entradas que contienen una palabra (versión testable)
+    public static List<NuevaEntrada> filtrarPorPalabra(String palabra, String nombreFichero) {
+        ArrayList<NuevaEntrada> diario = leerFichero(nombreFichero);
+        List<NuevaEntrada> resultados = new ArrayList<>();
+        for (NuevaEntrada entrada : diario) {
+            if (entrada.getNota().toLowerCase().contains(palabra.toLowerCase())) {
+                resultados.add(entrada);
+            }
+        }
+        return resultados;
+    }
+
+    // Variante para uso normal (diario.dat)
+    public static List<NuevaEntrada> filtrarPorPalabra(String palabra) {
+        return filtrarPorPalabra(palabra, "");
+    }
+
+    // Busca entradas por fecha (versión testable)
+    public static List<NuevaEntrada> filtrarPorFecha(String fecha, String nombreFichero) {
+        ArrayList<NuevaEntrada> diario = leerFichero(nombreFichero);
+        List<NuevaEntrada> resultados = new ArrayList<>();
+
+        LocalDate fechaLocalDate = GestionFechas.convertirStringALocalDate(fecha);
+        if (fechaLocalDate == null) {
+            System.out.println("Formato de fecha inválido: " + fecha);
+            return resultados;
+        }
+
+        for (NuevaEntrada entrada : diario) {
+            LocalDate fechaEntrada = GestionFechas.convertirStringALocalDate(entrada.getFecha());
+            if (fechaEntrada != null && fechaLocalDate.isEqual(fechaEntrada)) {
+                resultados.add(entrada);
+            }
+        }
+
+        return resultados;
+    }
+
+    // Variante para uso normal (diario.dat)
+    public static List<NuevaEntrada> filtrarPorFecha(String fecha) {
+        return filtrarPorFecha(fecha, "");
+    }
+
+    // Método que imprime todas las entradas que contienen una palabra (modo consola)
+    public static void buscarPorPalabra(String palabra) {
+        List<NuevaEntrada> resultados = filtrarPorPalabra(palabra);
+        if (resultados.isEmpty()) {
+            System.out.println("No se ha encontrado ninguna entrada con la palabra: " + palabra);
+        } else {
+            for (NuevaEntrada e : resultados) {
+                System.out.println(e);
+            }
+            System.out.println("Se han encontrado " + resultados.size() + " entradas con la palabra: " + palabra);
+        }
+    }
+
+    // Método que imprime todas las entradas de una fecha concreta
+    public static void buscarPorFecha(String fecha) {
+        List<NuevaEntrada> resultados = filtrarPorFecha(fecha);
+        if (resultados.isEmpty()) {
+            System.out.println("No se ha encontrado ninguna entrada con la fecha: " + fecha);
+        } else {
+            for (NuevaEntrada e : resultados) {
+                System.out.println(e);
+            }
+            System.out.println("Se han encontrado " + resultados.size() + " entradas con la fecha: " + fecha);
+        }
+    }
+
+    // Exporta el contenido del binario a texto y CSV
     public static void pasarDeBinarioATexto() {
-        String ficheroTexto = "diario.txt";     // Fichero de salida
-        String ficheroBinario = "diario.dat";   // Fichero de entrada
-        String ficheroCSV = "diario.csv";     // Fichero CSV de salida
+        String ficheroTexto = "diario.txt";
+        String ficheroCSV = "diario.csv";
+        String ficheroBinario = "diario.dat";
 
         try (
-                // Crear ObjectInputStream para leer objetos
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ficheroBinario));
-                // Crear BufferedWriter para escribir texto
                 BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroTexto));
                 BufferedWriter bwcsv = new BufferedWriter(new FileWriter(ficheroCSV))
-
         ) {
-            // Leemos la lista de entradas desde el fichero binario
-            ArrayList<NuevaEntrada> listaEntradas = (ArrayList<NuevaEntrada>) ois.readObject();
+            ArrayList<NuevaEntrada> lista = (ArrayList<NuevaEntrada>) ois.readObject();
 
-            // Escribimos cada entrada en el fichero de texto
-            // y en el fichero CSV
             bwcsv.write("ID;Fecha;Nota");
             bwcsv.newLine();
-            for (NuevaEntrada entrada : listaEntradas) {
+            for (NuevaEntrada entrada : lista) {
                 bw.write(entrada.toString());
+                bw.newLine();
+
                 bwcsv.write(entrada.toCSV());
-                bw.newLine(); // salto de línea
                 bwcsv.newLine();
             }
 
@@ -117,11 +144,14 @@ public class GestionFicherosBin  implements Serializable {
             System.out.println("No se encontró el fichero binario: " + ficheroBinario);
         } catch (EOFException e) {
             System.out.println("El fichero binario está vacío.");
-        } catch (IOException e) {
-            System.out.println("Error de lectura/escritura: " + e.getMessage());
-        } catch (ClassNotFoundException e) {
-            System.out.println("Clase no encontrada al leer objeto: " + e.getMessage());
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error al procesar el fichero: " + e.getMessage());
         }
     }
 
+    // Verifica si el fichero está vacío
+    public static boolean ficheroVacio(String nombreFichero) {
+        File file = new File(nombreFichero);
+        return file.exists() && file.length() == 0;
+    }
 }

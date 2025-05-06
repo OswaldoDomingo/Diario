@@ -6,6 +6,19 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
 
 ---
+## [1.2.0] - 2025-05-06
+
+### ✨ Añadido
+- Búsqueda por palabra clave y por fecha desde el menú de consola.
+- Métodos `filtrarPorPalabra()` y `filtrarPorFecha()` reutilizables para pruebas.
+- Separación entre fichero real (`diario.dat`) y de pruebas (`diario.test.dat`).
+- Validación de entradas numéricas con `scanner.hasNextInt()`.
+- Paso de `Scanner` compartido entre métodos para evitar errores de entrada.
+
+### 🧪 Pruebas
+- Nuevos tests en `GestionFicherosBinTest` para filtrar por palabra y fecha.
+- Uso de `@BeforeEach` y `@AfterEach` para preparar datos controlados.
+
 
 ## [1.1.0] - 2025-05-05
 

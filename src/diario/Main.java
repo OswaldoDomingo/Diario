@@ -1,25 +1,29 @@
 package diario;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
 public class Main {
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
 
         do {
             menu();
-            opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
-
-            opciones(opcion); // Le pasamos la opción seleccionada
+            if(scanner.hasNextInt()) {
+                opcion = scanner.nextInt();
+                scanner.nextLine(); // Limpiar el buffer
+                opciones(opcion, scanner); // Llamar al método de opciones
+            } else {
+                System.out.println("Por favor, introduce un número válido.");
+                scanner.nextLine(); // Limpiar el input incorrecto
+            }
         } while (opcion != 3);
     }
-
-
 
 
     //Menu
@@ -31,14 +35,16 @@ public class Main {
         System.out.println("4. Exportar binario a texto");
         System.out.println("5. Leer archivo de texto generado");
         System.out.println("6. Borrar archivo de texto");
+        System.out.println("7. Buscar entrada por palabra");
+        System.out.println("8. Buscar entrada por fecha");
         System.out.println("*************************************");
     }
     //Método para elegir la opción
-    public static void opciones(int opcion) {
+    public static void opciones(int opcion, Scanner scanner) {
         System.out.println("*************************************");
         switch (opcion) {
             case 1:
-                nuevaEntrada();
+                nuevaEntrada(scanner);
                 break;
             case 2:
                 verEntradas();
@@ -58,6 +64,18 @@ public class Main {
                 System.out.println("Borrar diario formato texto");
                 GestionFicheros.borrarArchivoTexto();
                 break;
+            case 7:
+                System.out.println("Buscar entrada por palabra");
+                System.out.println("Introduce la palabra a buscar:");
+                String palabra = scanner.nextLine();
+                GestionFicherosBin.buscarPorPalabra(palabra);
+                break;
+            case 8:
+                System.out.println("Buscar entrada por fecha");
+                System.out.println("Introduce la fecha a buscar (dd-MM-yyyy):");
+                String fecha = scanner.nextLine();
+                GestionFicherosBin.buscarPorFecha(fecha);
+                break;
             default:
                 System.out.println("Opción no válida");
                 break;
@@ -66,8 +84,7 @@ public class Main {
     }
 
     //Método para añadir una entrada
-    public static void nuevaEntrada() {
-        Scanner scanner = new Scanner(System.in);
+    public static void nuevaEntrada(Scanner scanner) {
         String fecha;
         String nota;
         int opcion;
@@ -102,8 +119,8 @@ public class Main {
 
         entrada.add(nuevaEntrada);
 
-        //GestionFicheros.escribirFichero(nuevaEntrada);
-        GestionFicherosBin.escribirFicheroArray(nuevaEntrada);
+        // Guardar la entrada en el fichero por defecto (diario.dat)
+        GestionFicherosBin.escribirFicheroArray(nuevaEntrada, ""); // "" = diario.dat
     }
 
 
@@ -116,7 +133,7 @@ public class Main {
 
         //Ver entradas del fichero binario
         System.out.println("Entradas del fichero binario:");
-        ArrayList<NuevaEntrada> entradasBin = GestionFicherosBin.leerFichero();
+        ArrayList<NuevaEntrada> entradasBin = GestionFicherosBin.leerFichero("");
         for(NuevaEntrada e : entradasBin) {
             System.out.println(e.toString());
         }
