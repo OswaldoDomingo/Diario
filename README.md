@@ -16,6 +16,9 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 - 🧪 **Pruebas unitarias con JUnit**: Test de exportación implementado (`GestionFicherosBinTest`, `GestionFechasTest`).
 - 🔍 **Búsqueda de entradas por palabra clave y fecha**: Desde el menú se puede buscar fácilmente contenido específico.
 - 🧼 **Validación de entradas**: Control de errores de entrada para evitar fallos con datos incorrectos.
+- 🗓️ **Formato de fecha flexible**: Se pueden introducir fechas con o sin ceros (ej. `2-2-2025` o `02-02-2025`).
+- 🔒 **Compatibilidad binaria estable**: Uso de `serialVersionUID` en clases serializables para evitar errores al leer el archivo binario.
+
 
 ---
 

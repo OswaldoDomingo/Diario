@@ -3,7 +3,9 @@ package diario;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoField;
 
 public class GestionFechas {
 
@@ -34,7 +36,14 @@ public class GestionFechas {
             return null;
         }
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendValue(ChronoField.DAY_OF_MONTH)
+                .appendLiteral('-')
+                .appendValue(ChronoField.MONTH_OF_YEAR)
+                .appendLiteral('-')
+                .appendPattern("yyyy")
+                .toFormatter();
+
 
         try {
             return LocalDate.parse(fecha, formatter);

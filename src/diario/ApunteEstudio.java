@@ -2,6 +2,8 @@ package diario;
 
 public class ApunteEstudio extends NuevaEntrada {
 
+    private static final long serialVersionUID = 1L; // ✅ Añadido
+
     //materia, tema, subtema
     private String materia;
     private String tema;

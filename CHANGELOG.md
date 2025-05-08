@@ -7,6 +7,15 @@ y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
 
 ---
 
+## [1.2.2] - 2025-05-08
+### 🔒 Corregido
+- Se añadió `serialVersionUID` a las clases serializables (`NuevaEntrada`, `FraseCelebre`, `ReflexionPersonal`, `ApunteEstudio`) para evitar errores al leer el fichero binario.
+
+### 🗓️ Mejorado
+- Se actualizó el formateador de fechas para aceptar fechas con y sin ceros (ej. `2-2-2025` y `02-02-2025`).
+- Ahora la búsqueda por fecha acepta formatos más flexibles.
+
+
 ## [1.2.1] - 2025-05-07
 ### Añadido
 - Nuevos tipos de entrada: FraseCelebre, ReflexionPersonal, ApunteEstudio.

@@ -9,8 +9,9 @@ import java.io.IOException;
 
 
 
-
 public class NuevaEntrada implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     //Atributos
     protected String fecha;

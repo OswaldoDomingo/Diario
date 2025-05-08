@@ -1,6 +1,9 @@
 package diario;
 
 public class FraseCelebre extends NuevaEntrada{
+
+    private static final long serialVersionUID = 1L; // ✅ Añadido
+
     private String autor;
 
     //Constructor
