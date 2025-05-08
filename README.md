@@ -29,6 +29,10 @@ src/
 │   ├── GestionFechas.java         # Métodos de gestión y validación de fechas
 │   ├── GestionFicheros.java       # Herramientas para archivos de texto (secundarias)
 │   └── GestionFicherosBin.java    # Lógica de lectura/escritura en binario
+│   ├── FraseCelebre.java          # Entrada tipo frase célebre
+│   ├── ReflexionPersonal.java     # Entrada tipo reflexión
+│   ├── ApunteEstudio.java         # Entrada con materia/tema/subtema
+
 └── test/
     ├── GestionFicherosBinTest.java
     └── GestionFechasTest.java
@@ -36,6 +40,13 @@ src/
 
 ---
 
+## 🗂️ Tipos de entradas
+- Entrada general
+- Frase célebre
+- Reflexión personal
+- Apunte de estudio
+
+---
 ## 🔮 Posibles funcionalidades futuras
 
 Este proyecto se ha diseñado con posibilidad de ampliación. Algunas ideas para próximas versiones incluyen:
@@ -69,6 +80,8 @@ Este proyecto incluye pruebas unitarias con JUnit Jupiter:
 
 - Validación de fechas (`GestionFechasTest`)
 - Comprobación de exportación a texto (`GestionFicherosBinTest`)
+- Comprobación de tipo de entrada y exportación (`EntradaTest`)
+
 
 ---
 

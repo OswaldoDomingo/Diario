@@ -13,9 +13,10 @@ import java.io.IOException;
 public class NuevaEntrada implements Serializable {
 
     //Atributos
-    private String fecha;
-    private String nota;
-    private int id;
+    protected String fecha;
+    protected String nota;
+    protected int id;
+
     //Constructor
     public NuevaEntrada(String fecha, String nota) {
         this.fecha = fecha;
@@ -47,11 +48,6 @@ public class NuevaEntrada implements Serializable {
     }
 
 
-    //@Override
-    //public String toString() {
-    //    return id + "|" + fecha + "|" + nota;
-    //}
-
     public static int ultimaEntrada() {
             // Leer el fichero donde está el último número
             String archivo = "id.txt";
@@ -76,13 +72,20 @@ public class NuevaEntrada implements Serializable {
 
             return nuevoId;
         }
+
+    public String getTipoEntrada() {
+        return "general";
+    }
 @Override
     public String toString() {
-        return id + "|" + fecha + "|" + nota;
+        return id + "|"
+                + fecha + "|"
+                + getTipoEntrada() + "|"
+                + nota;
     }
     // Método para exportar a csv
     public String toCSV() {
-        return id + ";" + fecha + ";" + nota;
+        return id + ";" + fecha + ";" + getTipoEntrada() + ";" + nota;
     }
 
 }

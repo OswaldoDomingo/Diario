@@ -6,6 +6,14 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
 
 ---
+
+## [1.2.1] - 2025-05-07
+### Añadido
+- Nuevos tipos de entrada: FraseCelebre, ReflexionPersonal, ApunteEstudio.
+- Método getTipoEntrada() en todas las clases.
+- Exportación CSV y toString actualizados con tipo de entrada.
+
+
 ## [1.2.0] - 2025-05-06
 
 ### ✨ Añadido
