@@ -9,6 +9,9 @@ TODO.md
 *.swo
 *.bak
 /lib
+.tmp.drivedownload
+.tmp.driveupload
+
 
 ### IntelliJ IDEA ###
 out/
