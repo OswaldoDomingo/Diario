@@ -1,5 +1,7 @@
 package diario;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -85,34 +87,29 @@ public class Main {
 
     //Método para añadir una entrada
     public static void nuevaEntrada(Scanner scanner) {
-        String fecha;
-        String nota;
-        int opcion;
+        scanner.nextInt(); //Limpia el buffer
 
-        System.out.println("Introduce la fecha a mano (1) o la fecha actual (2):");
-        opcion = scanner.nextInt();
-        scanner.nextLine(); // Limpiar el buffer
-        boolean correcto = false;
+        int tipoEntrada = seleccionarTipoEntrada(scanner);
+        NuevaEntrada nuevaEntrada = null;
 
-        if (opcion == 1) {
-            do {
-                System.out.println("Introduce la fecha manualmente (dd-MM-yyyy):");
-                fecha = scanner.nextLine();
-                if (GestionFechas.comprobarFormatoFecha(fecha)) {
-                    correcto = true;
-                } else {
-                    System.out.println("Formato de fecha incorrecto. Por favor, introduce la fecha en el formato dd-MM-yyyy.");
-                }
-            } while (!correcto);
-        } else if (opcion == 2) {
-            fecha = GestionFechas.obtenerFecha();
-        } else {
-            System.out.println("Opción no válida");
-            return;
+         switch (tipoEntrada) {
+            case 1:
+                System.out.println("Diario personal seleccionado");
+                nuevaEntrada = crearEntradaDiario(scanner);
+                break;
+            case 2:
+                System.out.println("Reflexión personal seleccionada");
+                break;
+            case 3:
+                System.out.println("Apuntes de clase seleccionados");
+                break;
+            case 4:
+                System.out.println("Frases célebres seleccionadas");
+                break;
+            default:
+                System.out.println("Opción no válida");
         }
 
-        System.out.println("Introduce la nota:");
-        nota = scanner.nextLine();
 
         ArrayList<NuevaEntrada> entrada = new ArrayList<>();
         NuevaEntrada nuevaEntrada = new NuevaEntrada(fecha, nota);
@@ -122,6 +119,19 @@ public class Main {
         // Guardar la entrada en el fichero por defecto (diario.dat)
         GestionFicherosBin.escribirFicheroArray(nuevaEntrada, ""); // "" = diario.dat
     }
+
+    //Método para crear una entrada de diario
+    public static NuevaEntrada crearEntradaDiario(Scanner scanner) {
+        scanner.nextLine(); // Limpiar el buffer
+
+        String fecha = GestionFechas.pedirFecha();
+
+        //🔁 Permitir elegir el tipo de entrada (diario, reflexión, apunte, frase, etc.)
+        System.out.println("Introduce la nota:");
+        String nota = scanner.nextLine();
+        return new NuevaEntrada(fecha, nota);
+    }
+
 
 
     //Método para ver las entradas
@@ -137,6 +147,18 @@ public class Main {
         for(NuevaEntrada e : entradasBin) {
             System.out.println(e.toString());
         }
+    }
+
+    public static int seleccionarTipoEntrada(Scanner scanner) {
+        System.out.println("Selecciona el tipo de entrada:");
+        System.out.println("1. Diario personal");
+        System.out.println("2. Reflexión personal");
+        System.out.println("3. Apuntes de clase");
+        System.out.println("4. Frases célebres");
+        System.out.println("0. Cancelar");
+
+        return scanner.nextInt(); // Devuelve la opción elegida
+
     }
 
 

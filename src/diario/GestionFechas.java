@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoField;
+import java.util.Scanner;
 
 public class GestionFechas {
 
@@ -53,4 +54,34 @@ public class GestionFechas {
         }
     }
 
+    public static String pedirFecha(){
+        String fecha;
+        int opcion;
+        LocalDate fechaLocalDate;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Introduce la fecha a mano (1) o la fecha actual (2):");
+        opcion = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el buffer
+        boolean correcto = false;
+
+        if (opcion == 1) {
+            do {
+                System.out.println("Introduce la fecha manualmente (dd-MM-yyyy):");
+                fecha = scanner.nextLine();
+                if (GestionFechas.comprobarFormatoFecha(fecha)) {
+                    correcto = true;
+                } else {
+                    System.out.println("Formato de fecha incorrecto. Por favor, introduce la fecha en el formato dd-MM-yyyy.");
+                }
+            } while (!correcto);
+        } else if (opcion == 2) {
+            fecha = GestionFechas.obtenerFecha();
+        } else {
+            System.out.println("Opción no válida");
+            return null;
+        }
+        return fecha;
+
+    }
 }

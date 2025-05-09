@@ -2,6 +2,7 @@ diario.dat
 diario.txt
 diario.csv
 id.txt
+TODO.md
 *.log
 *.tmp
 *.swp
