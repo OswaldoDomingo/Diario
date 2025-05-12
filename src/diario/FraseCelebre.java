@@ -7,8 +7,8 @@ public class FraseCelebre extends NuevaEntrada{
     private String autor;
 
     //Constructor
-    public FraseCelebre(int id, String fecha, String nota, String autor) {
-        super(id, fecha, nota);
+    public FraseCelebre(String fecha, String nota, String autor) {
+        super(ultimaEntrada(), fecha, nota);
         this.autor = autor;
 
     }

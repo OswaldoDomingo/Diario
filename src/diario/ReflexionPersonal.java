@@ -7,9 +7,9 @@ public class ReflexionPersonal extends NuevaEntrada{
     private String reflexion;
 
     //Constructor
-    public ReflexionPersonal(int id, String fecha, String nota, String reflexion) {
-        super(id, fecha, nota);
-        this.reflexion = reflexion;
+    public ReflexionPersonal(String fecha, String nota, String reflexion) {
+        super(ultimaEntrada(), fecha, nota);
+        this.reflexion = reflexion;//Tipo de reflexion, alegría, tristeza, descubrimiento, etc.
     }
 
     //Getters y Setters
