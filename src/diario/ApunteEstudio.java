@@ -10,11 +10,12 @@ public class ApunteEstudio extends NuevaEntrada {
     private String subtema;
 
     //Constructor
-    public ApunteEstudio(int id, String fecha, String nota, String materia, String tema, String subtema) {
-        super(id, fecha, nota);
+    public ApunteEstudio(String fecha, String nota, String materia, String tema, String subtema) {
+        super(ultimaEntrada(),fecha, nota);
         this.materia = materia;
         this.tema = tema;
         this.subtema = subtema;
+
     }
 
     //Getters y Setters

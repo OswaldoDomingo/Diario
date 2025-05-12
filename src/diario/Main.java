@@ -104,6 +104,7 @@ public class Main {
                 break;
             case 3:
                 System.out.println("Apuntes de clase seleccionados");
+                nuevaEntrada = crearApunteEstudio(scanner);
                 break;
             case 4:
                 System.out.println("Frases célebres seleccionadas");
@@ -119,30 +120,13 @@ public class Main {
         entrada.add(nuevaEntrada);
 
         // Guardar la entrada en el fichero por defecto (diario.dat)
-        GestionFicherosBin.escribirFicheroArray(nuevaEntrada, ""); // "" = diario.dat
+        if (nuevaEntrada != null) {
+            GestionFicherosBin.escribirFicheroArray(nuevaEntrada, ""); // Guardar en diario.dat
+        }
     }
 
-    //Método para crear una entrada de diario
-    public static NuevaEntrada crearEntradaDiario(Scanner scanner) {
-        scanner.nextLine(); // Limpiar el buffer
-
-        String fecha = GestionFechas.pedirFecha();
-
-        //🔁 Permitir elegir el tipo de entrada (diario, reflexión, apunte, frase, etc.)
-        System.out.println("Introduce la nota:");
-        String nota = scanner.nextLine();
-        return new NuevaEntrada(fecha, nota);
-    }
-
-
-
-    //Método para ver las entradas
+        //Método para ver las entradas
     public static void verEntradas(){
-       // ArrayList<NuevaEntrada> entradas = GestionFicheros.leerDiarioGuardarObjetos();
-       // for(NuevaEntrada e : entradas) {
-        //   System.out.println(e.toString());
-        // }
-
         //Ver entradas del fichero binario
         System.out.println("Entradas del fichero binario:");
         ArrayList<NuevaEntrada> entradasBin = GestionFicherosBin.leerFichero("");
@@ -162,7 +146,40 @@ public class Main {
         return scanner.nextInt(); // Devuelve la opción elegida
 
     }
+//Métodos para crear entradas
 
+    //Método para crear una entrada de diario
+    public static NuevaEntrada crearEntradaDiario(Scanner scanner) {
+        scanner.nextLine(); // Limpiar el buffer
 
+        String fecha = GestionFechas.pedirFecha();
 
+        //🔁 Permitir elegir el tipo de entrada (diario, reflexión, apunte, frase, etc.)
+        System.out.println("Introduce la nota:");
+        String nota = scanner.nextLine();
+        return new NuevaEntrada(fecha, nota);
+    }
+
+    //Método para crear una entrada de apuntes de estudio
+    public static ApunteEstudio crearApunteEstudio(Scanner scanner){
+        scanner.nextLine(); //Limpiar el buffer
+        String fecha = GestionFechas.pedirFecha();
+        System.out.println("Introduce la materia:");
+        String materia = scanner.nextLine();
+        System.out.println("Introduce el tema:");
+        String tema = scanner.nextLine();
+        System.out.println("Introduce el subtema:");
+        String subtema = scanner.nextLine();
+        System.out.println("Introduce la nota:");
+        String nota = scanner.nextLine();
+
+        // Validamos que nada esté vacío (opcional pero recomendable)
+        if (materia.isEmpty() || tema.isEmpty() || subtema.isEmpty() || nota.isEmpty()) {
+            System.out.println("Campos vacíos. Entrada no creada.");
+            return null;
+        }
+
+        return new ApunteEstudio(fecha, nota, materia, tema, subtema);
+
+    }
 }
