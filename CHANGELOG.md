@@ -6,6 +6,17 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
 
 ---
+## [1.3.0] - 2025-05-12
+
+### ✨ Añadido
+- Menú interactivo para seleccionar el tipo de entrada: Diario, Reflexión, Apunte, Frase célebre.
+- Integración inicial de subclases `FraseCelebre`, `ReflexionPersonal`, `ApunteEstudio`.
+
+### 🛠️ Corregido
+- Solucionado el bug que permitía guardar entradas vacías por error de Scanner o flujo mal gestionado.
+
+### 📤 Exportación
+- `toString()` y `toCSV()` de cada subclase exportan correctamente sus datos al pasar de binario a texto o CSV.
 
 ## [1.2.2] - 2025-05-08
 ### 🔒 Corregido

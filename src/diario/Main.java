@@ -87,7 +87,9 @@ public class Main {
 
     //Método para añadir una entrada
     public static void nuevaEntrada(Scanner scanner) {
-        scanner.nextInt(); //Limpia el buffer
+        //scanner.nextInt(); //Limpia el buffer
+        String fecha = "";
+        String nota = "";
 
         int tipoEntrada = seleccionarTipoEntrada(scanner);
         NuevaEntrada nuevaEntrada = null;
@@ -112,7 +114,7 @@ public class Main {
 
 
         ArrayList<NuevaEntrada> entrada = new ArrayList<>();
-        NuevaEntrada nuevaEntrada = new NuevaEntrada(fecha, nota);
+//        nuevaEntrada = new NuevaEntrada(fecha, nota);
 
         entrada.add(nuevaEntrada);
 

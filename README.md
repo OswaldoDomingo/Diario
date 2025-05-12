@@ -18,6 +18,8 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 - 🧼 **Validación de entradas**: Control de errores de entrada para evitar fallos con datos incorrectos.
 - 🗓️ **Formato de fecha flexible**: Se pueden introducir fechas con o sin ceros (ej. `2-2-2025` o `02-02-2025`).
 - 🔒 **Compatibilidad binaria estable**: Uso de `serialVersionUID` en clases serializables para evitar errores al leer el archivo binario.
+- ✍️ **Añadir entrada**: Permite crear nuevas notas personales con fecha y contenido.
++ ✍️ **Añadir entrada**: Permite crear nuevas notas personales, frases célebres, reflexiones o apuntes de estudio.
 
 
 ---
@@ -48,6 +50,10 @@ src/
 - Frase célebre
 - Reflexión personal
 - Apunte de estudio
++ - Diario personal
++ - Reflexión personal
++ - Apunte de estudio
++ - Frase célebre
 
 ---
 ## 🔮 Posibles funcionalidades futuras
