@@ -84,15 +84,16 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 
 Este proyecto se ha diseñado con posibilidad de ampliación. Algunas ideas para próximas versiones incluyen:
 
-- 📚 **Apuntes de clase** organizados por módulos y temas.
-- 📖 **Notas de lectura** de libros, con análisis o fragmentos destacados.
-- 💬 **Frases célebres o reflexiones** personales.
-- 🔍 **Búsqueda de entradas** por palabras clave, fechas o tipo.
-- 🖼️ **Soporte para contenido enriquecido** (imágenes, enlaces).
-- 🖥️ **Interfaz gráfica (GUI)** usando JavaFX o Swing.
-- 🌐 **Versión web** con backend y base de datos.
-- 🔐 **Autenticación de usuario** o cifrado de entradas.
-
+- 🗑️ Eliminación avanzada: Borrado masivo por tipo de entrada (frases, reflexiones, apuntes...).
+- ✏️ Edición de entradas: Modificar contenido ya registrado.
+- 🔍 Búsquedas avanzadas: Por tipo de entrada, materia, tema, subtema o rango de fechas.
+- 📚 Gestión de apuntes de clase: Organización por módulos, temas y subtemas.
+- 📖 Notas de lectura: Registro de fragmentos destacados o comentarios por libro y página.
+- 💬 Frases célebres y reflexiones: Clasificación y reutilización como inspiración diaria.
+- 🖼️ Contenido enriquecido: Posibilidad de incluir imágenes, enlaces o archivos adjuntos.
+- 🖥️ Interfaz gráfica (GUI): Implementación con JavaFX para facilitar la interacción.
+- 🌐 Versión web: Desarrollo de una interfaz web con base de datos y autenticación.
+- 🔐 Cifrado y privacidad: Encriptación de entradas o control de acceso por usuario.
 ---
 
 ## 🚀 Cómo ejecutar
