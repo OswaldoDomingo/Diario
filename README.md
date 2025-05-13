@@ -20,6 +20,8 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 - 🔒 **Compatibilidad binaria estable**: Uso de `serialVersionUID` en clases serializables para evitar errores al leer el archivo binario.
 - ✍️ **Añadir entrada**: Permite crear nuevas notas personales con fecha y contenido.
 + ✍️ **Añadir entrada**: Permite crear nuevas notas personales, frases célebres, reflexiones o apuntes de estudio.
+- ✍️ **Añadir entrada**: Permite crear nuevas notas personales, frases célebres, reflexiones o apuntes de estudio.
++ ✍️ **Añadir entrada**: Permite crear notas personales, reflexiones, frases célebres, apuntes de estudio o apuntes de libros.
 
 
 ---
@@ -50,10 +52,9 @@ src/
 - Frase célebre
 - Reflexión personal
 - Apunte de estudio
-+ - Diario personal
-+ - Reflexión personal
-+ - Apunte de estudio
-+ - Frase célebre
+- Diario personal
+- Apunte de libro (con autor, tipo de apunte y página)
+
 
 ---
 ## 🔮 Posibles funcionalidades futuras

@@ -6,6 +6,19 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
 
 ---
+## [1.3.1] - 2025-05-12
+
+### ✨ Añadido
+- Nuevo tipo de entrada: **ApunteLibro**
+    - Campos: título del libro, autor, tipo de apunte, número de página, texto del apunte.
+    - Soporte completo para exportación (`toCSV`) y visualización (`toString`).
+- Menú para introducir apuntes de libros, con validación y sugerencias de tipos de apunte.
+
+### ✅ Completado
+- Método `crearApunteLibro(Scanner)` para introducir la entrada de forma guiada.
+- Inclusión del nuevo tipo en `getTipoEntrada()` para búsquedas y exportaciones.
+
+
 ## [1.3.0] - 2025-05-12
 
 ### ✨ Añadido
