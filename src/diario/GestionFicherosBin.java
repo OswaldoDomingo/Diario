@@ -28,6 +28,23 @@ public class GestionFicherosBin implements Serializable {
         }
     }
 
+    public static void escribirFichero(ArrayList<NuevaEntrada> entradas, String nombreFichero) {
+        if (entradas == null) {
+            System.out.println("La lista de entradas no puede ser nula.");
+            return;
+        }
+
+        String fichero = (nombreFichero == null || nombreFichero.isEmpty()) ? "diario.dat" : nombreFichero;
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichero))) {
+            oos.writeObject(entradas); // Se escribe directamente la lista pasada
+            System.out.println("Fichero binario actualizado correctamente: " + fichero);
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el fichero: " + e.getMessage());
+        }
+    }
+
+
     // Lee un fichero binario y devuelve una lista de entradas
     public static ArrayList<NuevaEntrada> leerFichero(String nombreFichero) {
         ArrayList<NuevaEntrada> diario = new ArrayList<>();

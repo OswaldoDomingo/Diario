@@ -36,9 +36,10 @@ public class Main {
         System.out.println("3. Salir");
         System.out.println("4. Exportar binario a texto");
         System.out.println("5. Leer archivo de texto generado");
-        System.out.println("6. Borrar archivo de texto");
-        System.out.println("7. Buscar entrada por palabra");
-        System.out.println("8. Buscar entrada por fecha");
+//        System.out.println("6. Borrar archivo de texto");
+//        System.out.println("7. Buscar entrada por palabra");
+//        System.out.println("8. Buscar entrada por fecha");
+        System.out.println("6. Sección borrados");
         System.out.println("*************************************");
     }
     //Método para elegir la opción
@@ -63,8 +64,10 @@ public class Main {
                 GestionFicheros.leerFicheroTexto();
                 break;
             case 6:
-                System.out.println("Borrar diario formato texto");
-                GestionFicheros.borrarArchivoTexto();
+                //System.out.println("Borrar diario formato texto");
+                //GestionFicheros.borrarArchivoTexto();
+                MenuBorrados menuBorrados = new MenuBorrados();
+                menuBorrados.mostrarMenu(scanner, GestionFicherosBin.leerFichero(""));
                 break;
             case 7:
                 System.out.println("Buscar entrada por palabra");

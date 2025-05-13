@@ -19,10 +19,10 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 - 🗓️ **Formato de fecha flexible**: Se pueden introducir fechas con o sin ceros (ej. `2-2-2025` o `02-02-2025`).
 - 🔒 **Compatibilidad binaria estable**: Uso de `serialVersionUID` en clases serializables para evitar errores al leer el archivo binario.
 - ✍️ **Añadir entrada**: Permite crear nuevas notas personales con fecha y contenido.
-+ ✍️ **Añadir entrada**: Permite crear nuevas notas personales, frases célebres, reflexiones o apuntes de estudio.
+-✍️ **Añadir entrada**: Permite crear nuevas notas personales, frases célebres, reflexiones o apuntes de estudio.
 - ✍️ **Añadir entrada**: Permite crear nuevas notas personales, frases célebres, reflexiones o apuntes de estudio.
-+ ✍️ **Añadir entrada**: Permite crear notas personales, reflexiones, frases célebres, apuntes de estudio o apuntes de libros.
-
+-✍️ **Añadir entrada**: Permite crear notas personales, reflexiones, frases célebres, apuntes de estudio o apuntes de libros.
+- 🗑️ Eliminar entrada por ID: Permite eliminar una entrada específica indicando su número de identificación.
 
 ---
 

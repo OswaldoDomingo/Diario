@@ -6,6 +6,18 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
 
 ---
+
+## [1.3.2] - 2025-05-14
+
+### ✨ Añadido
+- Funcionalidad para **eliminar entrada por ID** desde un submenú interactivo.
+- Creación de clase `MenuBorrados` con opciones para eliminar entradas por tipo (próximamente).
+
+### ✅ Completado
+- Método `eliminarEntradaPorId(int id, ArrayList<NuevaEntrada>)` en `GestorEntradas`.
+- Nuevo método `escribirFichero(List)` para sobrescribir el binario tras eliminar.
+
+
 ## [1.3.1] - 2025-05-12
 
 ### ✨ Añadido
