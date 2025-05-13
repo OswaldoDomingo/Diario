@@ -29,21 +29,44 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 ## 📁 Estructura del proyecto
 
 ```
-src/
-├── diario/
-│   ├── Main.java                  # Clase principal con menú interactivo
-│   ├── NuevaEntrada.java          # Clase que representa una entrada de diario
-│   ├── GestionFechas.java         # Métodos de gestión y validación de fechas
-│   ├── GestionFicheros.java       # Herramientas para archivos de texto (secundarias)
-│   └── GestionFicherosBin.java    # Lógica de lectura/escritura en binario
-│   ├── FraseCelebre.java          # Entrada tipo frase célebre
-│   ├── ReflexionPersonal.java     # Entrada tipo reflexión
-│   ├── ApunteEstudio.java         # Entrada con materia/tema/subtema
+.
+├── docs/
+│   └── progreso.md                  # Registro diario de tiempo e hitos
+├── lib/                             # Dependencias externas para testing
+│   ├── apiguardian-api-1.1.2.jar
+│   ├── junit-jupiter-*.jar
+│   ├── junit-platform-*.jar
+│   └── opentest4j-1.3.0.jar
+├── out/
+│   └── production/
+│       └── Diario/
+│           ├── diario/              # Clases compiladas de producción
+│           └── test/                # Clases compiladas de test
+├── src/
+│   ├── diario/
+│   │   ├── Main.java
+│   │   ├── NuevaEntrada.java
+│   │   ├── FraseCelebre.java
+│   │   ├── ReflexionPersonal.java
+│   │   ├── ApunteEstudio.java
+│   │   ├── ApunteLibro.java
+│   │   ├── GestionFechas.java
+│   │   ├── GestionFicheros.java
+│   │   ├── GestionFicherosBin.java
+│   │   ├── GestorEntradas.java
+│   │   └── MenuBorrados.java
+│   └── test/
+│       ├── GestionFicherosBinTest.java
+│       └── GestionFechasTest.java
+├── CHANGELOG.md                    # Historial de cambios
+├── diario.dat / diario.txt / diario.csv   # Archivos de datos (binario, texto y CSV)
+├── id.txt                          # Control incremental de ID
+├── Diario.iml                      # Archivo del proyecto IntelliJ
+├── LICENSE.md                      # Documentación general
+├── README.md                       # Documentación general
 
-└── test/
-    ├── GestionFicherosBinTest.java
-    └── GestionFechasTest.java
 ```
+
 
 ---
 
