@@ -6,6 +6,18 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
 
 ---
+## [1.3.3] - 2025-05-14
+
+### ✨ Añadido
+- Submenú de eliminación en `MenuBorrados`:
+  - Eliminar por tipo: `frase`, `libro`, `reflexion`, `apunte`
+  - Validación del ID antes de eliminar (solo elimina si coincide tipo e ID)
+- Actualización de `ApunteLibro.java` con campos completos y método `getTipoEntrada()`
+- Añadido soporte en `MenuBorrados` para opción 5: Apuntes de clase (`apunte`)
+
+### 🛠️ Corregido
+- Se evita borrar entradas de tipo incorrecto aunque el ID coincida.
+- Se estandariza el nombre del fichero en todos los métodos (`diario.dat`)
 
 ## [1.3.2] - 2025-05-14
 

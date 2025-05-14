@@ -57,6 +57,7 @@ public class ApunteLibro extends NuevaEntrada {
     public String toString() {
         return getId()
                 + "|" + getFecha()
+                + "|" + getTipoEntrada()
                 + "|" + tipoDeApunte
                 + "|" + libro
                 + "|" + pagina
@@ -67,6 +68,7 @@ public class ApunteLibro extends NuevaEntrada {
     public String toCSV() {
         return getId() + ";"
                 + getFecha() + ";"
+                + getTipoEntrada() + ";"
                 + tipoDeApunte + ";"
                 + libro + ";"
                 + pagina + ";"

@@ -23,6 +23,7 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 - ✍️ **Añadir entrada**: Permite crear nuevas notas personales, frases célebres, reflexiones o apuntes de estudio.
 -✍️ **Añadir entrada**: Permite crear notas personales, reflexiones, frases célebres, apuntes de estudio o apuntes de libros.
 - 🗑️ Eliminar entrada por ID: Permite eliminar una entrada específica indicando su número de identificación.
+- 🗑️ Eliminación avanzada desde menú: permite eliminar por ID o por tipo de entrada (frases, reflexiones, apuntes...).
 
 ---
 
