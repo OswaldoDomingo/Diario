@@ -1,6 +1,23 @@
 # 🕓 Registro de Tiempo y Hitos - Proyecto Java Diario
 
 #### Este documento recoge el seguimiento diario del desarrollo del proyecto **Java Diario**, incluyendo las horas dedicadas y los avances alcanzados en cada sesión.
+--- 
+## 📅 2025-05-16
+
+### 🕒 Horario: 10:45 - 12:00
+
+### ⏱️ Tiempo invertido: 1h 15min
+
+✅ Hitos alcanzados:
+- Implementada eliminación masiva de entradas por tipo en MenuBorrados.
+- Añadida opción para borrar TODO el diario (diario.dat), los archivos exportados (diario.txt, diario.csv), y reiniciar el contador (id.txt).
+- Refuerzo de validaciones en menú de borrados: menú a prueba de fallos de entrada.
+- README, CHANGELOG, TODO, RESUMEN y progreso actualizados y sincronizados.
+- Preparado commit, push, tag y release en GitHub.
+
+🔜 Próximo objetivo:
+- Avanzar con búsquedas avanzadas (por materia, tema, subtema, tipo, rango de fechas).
+- Valorar integración de base de datos y edición de entradas.
 
 ---
 ## 📅 2025-05-14

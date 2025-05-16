@@ -6,6 +6,22 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.
 y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
 
 ---
+## [1.3.4] - 2025-05-16
+
+### ✨ Añadido
+- Opción de eliminar todas las entradas de un tipo concreto desde `MenuBorrados`.
+- Nueva opción para borrar TODO el diario, incluyendo los archivos exportados (`diario.txt`, `diario.csv`) y reiniciar el contador (`id.txt`).
+- Validación robusta del menú de borrados: control de errores en entrada de usuario y tipo.
+- Refuerzo de mensajes y confirmaciones de seguridad antes de cualquier borrado masivo.
+
+### 🛠️ Mejorado
+- El menú de borrados ahora es a prueba de errores: impide introducir texto en opciones numéricas y no se bloquea si el usuario comete errores de entrada.
+- El contador de IDs (`id.txt`) se reinicia a 0 cuando se borra todo el diario.
+
+### 🧹 Limpiado
+- Documentación sincronizada en README, TODO, RESUMEN y progreso.
+
+---
 ## [1.3.3] - 2025-05-14
 
 ### ✨ Añadido
