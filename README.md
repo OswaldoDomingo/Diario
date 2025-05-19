@@ -26,6 +26,8 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 - 🗑️ **Eliminación avanzada desde menú:** permite eliminar por ID o por tipo de entrada (frases, reflexiones, apuntes...).
 - 🗑️ **Añadir la opción de borrado completo:** el diario y los archivos exportados (txt, csv, y reinicio de contador de IDs).
 -  **Mejora** de seguridad y validación en el menú de borrado.
+- 🔎 **Búsqueda avanzada por fechas**: Ahora se puede buscar por fecha concreta o por rango de fechas desde un menú dedicado. Permite encontrar todas las entradas comprendidas entre dos fechas, ambos extremos incluidos.
+- 📋 **Nuevo menú de búsquedas**: Menú específico donde se agrupan las búsquedas por fecha concreta y por rango, preparado para futuras ampliaciones (tipo, materia, etc).
 
 
 ---

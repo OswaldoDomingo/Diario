@@ -4,7 +4,17 @@ Todas las modificaciones importantes de este proyecto se documentarán en este a
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/)
 y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
+---
+## [1.3.5] - 2025-05-16
 
+### ✨ Añadido
+- Implementada búsqueda avanzada por rango de fechas en el diario.
+- Creada la clase `MenuBusquedas` para centralizar las diferentes opciones de búsqueda (por fecha concreta y por rango de fechas).
+- Mejorada la validación y conversión de fechas (`GestionFechas`), tolerando fechas con y sin ceros iniciales.
+
+### 🛠️ Mejorado
+- Ahora el menú de búsquedas es a prueba de errores de entrada y orientado a ampliaciones.
+- Mejoras menores en la interacción del usuario y mensajes informativos.
 ---
 ## [1.3.4] - 2025-05-16
 

@@ -1,6 +1,41 @@
 # 🕓 Registro de Tiempo y Hitos - Proyecto Java Diario
 
 #### Este documento recoge el seguimiento diario del desarrollo del proyecto **Java Diario**, incluyendo las horas dedicadas y los avances alcanzados en cada sesión.
+---
+## 📅 2025-05-19
+
+### 🕑 Horario del día
+- **9:00 – 9:40**
+- **10:05 – 10:30**
+- **12:25 – 12:55**
+- **16:20 – 17:45**
+- 
+### ⏱️ Tiempo total dedicado: **~3h 35min**
+
+---
+
+### ✅ Hitos alcanzados
+
+- Implementada búsqueda avanzada por rango de fechas.
+- Añadida clase `MenuBusquedas` con menú para búsqueda por fecha concreta y rango de fechas.
+- Mejoradas comprobaciones y conversión de fechas en `GestionFechas`.
+- Probadas búsquedas con diferentes escenarios y validaciones.
+- Actualizados README, CHANGELOG, TODO y progreso.
+
+---
+
+### 🔜 Próximo objetivo
+
+- Añadir búsquedas avanzadas por tipo, materia y subtema.
+- Evaluar nuevas opciones de exportación o borrado por rango de fechas.
+
+---
+
+> **Comentario:**  
+> Día caótico, pero productivo. La mañana fue menos eficiente por interrupciones, pero la tarde ha sido muy productiva con el avance clave en búsquedas por fechas.
+
+
+
 --- 
 ## 📅 2025-05-16
 
