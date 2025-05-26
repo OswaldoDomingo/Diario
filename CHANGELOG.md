@@ -4,6 +4,22 @@ Todas las modificaciones importantes de este proyecto se documentarán en este a
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/)
 y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
+
+--- 
+## [1.4.0] - 2025-05-26
+### Añadido
+- Método `convertirStringALocalDateBuscarPorFechas(String fecha)` mejorado para normalizar fechas con ceros en día, mes y año.
+- Validación de fechas vacías y nulas.
+- Mensajes de error más claros al introducir fechas inválidas.
+
+### Cambiado
+- Se reemplazó estructura `if` por `switch` en la opción de ingreso de fecha para mejorar la legibilidad.
+- Se mejoró la gestión de excepciones al introducir opciones de menú (uso de `try-catch` para `InputMismatchException`).
+- Se evita `NullPointerException` al validar fechas antes de compararlas.
+
+### Comentario
+Estas mejoras refuerzan la robustez del sistema, aportan claridad al usuario y evitan errores en el flujo de fechas.
+
 ---
 ## [1.3.5] - 2025-05-16
 

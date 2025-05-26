@@ -7,6 +7,7 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoField;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GestionFechas {
@@ -60,6 +61,19 @@ public class GestionFechas {
             System.out.println("Fecha nula o vacía");
             return null;
         }
+
+        // Normalizar la fecha agregando ceros donde sea necesario
+        String[] partes = fecha.split("-");
+        if (partes.length == 3) {
+            String dia = partes[0].length() == 1 ? "0" + partes[0] : partes[0];
+            String mes = partes[1].length() == 1 ? "0" + partes[1] : partes[1];
+            String anio = partes[2];
+            while (anio.length() < 4) {
+                anio = "0" + anio;
+            }
+            fecha = dia + "-" + mes + "-" + anio;
+        }
+
         DateTimeFormatter formatter = new DateTimeFormatterBuilder()
                 .appendPattern("[d-M-yyyy][dd-MM-yyyy]")
                 .toFormatter();
@@ -74,15 +88,16 @@ public class GestionFechas {
 
     public static String pedirFecha() {
         String fecha = "";
-        int opcion;
-        LocalDate fechaLocalDate;
+//        int opcion;
+//        LocalDate fechaLocalDate;
         Scanner scanner = new Scanner(System.in);
         boolean opcionCorrecta = false;
 
         do {
             System.out.println("Introduce la fecha a mano (1) o la fecha actual (2):");
-            opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
+            try {
+                int opcion = scanner.nextInt();
+                scanner.nextLine(); // Limpiar el buffer
 
             if (opcion == 1) {
                 boolean correcto = false;
@@ -101,6 +116,11 @@ public class GestionFechas {
                 opcionCorrecta = true;
             } else {
                 System.out.println("Opción no válida. Intenta de nuevo.");
+            }
+            } catch (InputMismatchException e) {
+                System.out.println("❌ Debes introducir un número de opción válido.");
+                scanner.nextLine(); // Limpiar el buffer
+
             }
         } while (!opcionCorrecta);
 
@@ -135,6 +155,12 @@ public class GestionFechas {
         LocalDate fechaFinLocalDate = convertirStringALocalDateBuscarPorFechas(fechaFin);
 
         boolean encontrado = false;
+
+        // Validador de fechas nulas
+        if (fechaInicioLocalDate == null || fechaFinLocalDate == null) {
+            System.out.println("Una o ambas fechas son inválidas.");
+            return;
+        }
 
         // Comprobamos si la fecha de inicio es anterior a la fecha de fin
         if(fechaFinLocalDate.isBefore(fechaInicioLocalDate)){

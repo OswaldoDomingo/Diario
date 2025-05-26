@@ -1,6 +1,26 @@
 # 🕓 Registro de Tiempo y Hitos - Proyecto Java Diario
 
 #### Este documento recoge el seguimiento diario del desarrollo del proyecto **Java Diario**, incluyendo las horas dedicadas y los avances alcanzados en cada sesión.
+
+---
+### 🗓️ 26 de mayo de 2025 - Jornada completada
+
+#### 🛠️ Mejoras implementadas:
+- Normalización automática de fechas en método `convertirStringALocalDateBuscarPorFechas`.
+- Control de errores si se introduce una fecha en formato incorrecto.
+- Validación de fechas nulas antes de realizar comparaciones.
+- Sustitución de `if` por `switch` en `pedirFecha` para hacer el código más legible.
+- Manejo de errores más claro para opciones no válidas.
+- Mejora en la robustez general del flujo de fechas.
+
+#### ⏱️ Tiempo estimado invertido:
+- 1h (aprox.)
+
+#### 🧩 Próximos pasos:
+- Preparar test unitarios para fechas.
+- Posible internacionalización de los mensajes.
+- Exportación y búsqueda avanzada por rango de fechas.
+
 ---
 ## 📅 2025-05-19
 

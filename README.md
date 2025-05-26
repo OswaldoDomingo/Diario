@@ -19,16 +19,23 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 - 🗓️ **Formato de fecha flexible**: Se pueden introducir fechas con o sin ceros (ej. `2-2-2025` o `02-02-2025`).
 - 🔒 **Compatibilidad binaria estable**: Uso de `serialVersionUID` en clases serializables para evitar errores al leer el archivo binario.
 - ✍️ **Añadir entrada**: Permite crear nuevas notas personales con fecha y contenido.
--✍️ **Añadir entrada**: Permite crear nuevas notas personales, frases célebres, reflexiones o apuntes de estudio.
 - ✍️ **Añadir entrada**: Permite crear nuevas notas personales, frases célebres, reflexiones o apuntes de estudio.
--✍️ **Añadir entrada**: Permite crear notas personales, reflexiones, frases célebres, apuntes de estudio o apuntes de libros.
+- ✍️ **Añadir entrada**: Permite crear nuevas notas personales, frases célebres, reflexiones o apuntes de estudio.
+- ✍️ **Añadir entrada**: Permite crear notas personales, reflexiones, frases célebres, apuntes de estudio o apuntes de libros.
 - 🗑️ **Eliminar entrada por ID:** Permite eliminar una entrada específica indicando su número de identificación.
 - 🗑️ **Eliminación avanzada desde menú:** permite eliminar por ID o por tipo de entrada (frases, reflexiones, apuntes...).
 - 🗑️ **Añadir la opción de borrado completo:** el diario y los archivos exportados (txt, csv, y reinicio de contador de IDs).
--  **Mejora** de seguridad y validación en el menú de borrado.
+-    **Mejora** de seguridad y validación en el menú de borrado.
 - 🔎 **Búsqueda avanzada por fechas**: Ahora se puede buscar por fecha concreta o por rango de fechas desde un menú dedicado. Permite encontrar todas las entradas comprendidas entre dos fechas, ambos extremos incluidos.
 - 📋 **Nuevo menú de búsquedas**: Menú específico donde se agrupan las búsquedas por fecha concreta y por rango, preparado para futuras ampliaciones (tipo, materia, etc).
-
+- 🛠️ **Validación de fechas mejorada**:
+   - Normalización automática del formato `dd-MM-yyyy` aunque se introduzcan valores incompletos.
+   - Mensajes de error consistentes si el formato es incorrecto o la fecha es nula.
+   - Evita errores de comparación (por ejemplo, con `isBefore()`).
+- 🔁 **Lectura de entradas**.
+- 💾 **Almacenamiento binario (`diario.dat`)**: Serialización de objetos.
+- 📤 **Exportar** a `.txt` y `.csv` (con separador `;` para Excel).
+- 🧹 **Borrado individual o por tipo de entrada**.
 
 ---
 
