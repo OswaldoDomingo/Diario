@@ -19,6 +19,7 @@ public class FraseCelebre extends NuevaEntrada{
     public void setAutor(String autor) {
         this.autor = autor;
     }
+
     @Override
     public String getTipoEntrada() {
         return "frase";

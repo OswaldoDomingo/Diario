@@ -40,6 +40,7 @@ public class Main {
         System.out.println("7. Sección búsqueda");
         System.out.println("8. Buscar entrada por fecha");
         System.out.println("9. Sección búsqueda por fechas");
+        System.out.println("10. Modificar entradas");
         System.out.println("*************************************");
     }
     //Método para elegir la opción
@@ -88,6 +89,25 @@ public class Main {
 //                GestionFechas.buscarMismaFecha(fecha, GestionFicherosBin.leerFichero(""));
                 MenuBusquedas menuBusquedas = new MenuBusquedas();
                 menuBusquedas.menuBusquedas(scanner, GestionFicherosBin.leerFichero(""));
+                break;
+            case 10:
+                System.out.println("Modificar entradas");
+                ArrayList<NuevaEntrada> entradas = GestionFicherosBin.leerFichero("");
+                for (NuevaEntrada entrada : entradas) {
+                    System.out.println("ID: " + entrada.getId());
+                    System.out.println("Fecha: " + entrada.getFecha());
+                    System.out.println("Tipo: " + entrada.getTipoEntrada()); // Si has implementado este método
+                    System.out.println("Nota: " + entrada.getNota());
+                    System.out.println("----------------------------------");
+                }
+                System.out.println("Introduce el ID de la entrada que quieres modificar:");
+                while (!scanner.hasNextInt()) {
+                    System.out.println("Por favor, introduce un número válido para el ID:");
+                    scanner.next(); // Limpiar entrada inválida
+                }
+                int id = scanner.nextInt();
+                EditorEntradas editor = new EditorEntradas();
+                editor.editarEntrada(entradas, id);
                 break;
 
                 default:

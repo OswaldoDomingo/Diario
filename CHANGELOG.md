@@ -4,6 +4,25 @@ Todas las modificaciones importantes de este proyecto se documentarán en este a
 
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es/1.0.0/)
 y este proyecto sigue el versionado [SemVer](https://semver.org/lang/es/).
+---
+## [1.4.1] - 2025-05-28
+
+### ✨ Añadido
+- Métodos específicos para editar entradas:
+  - `editarApunteLibro`
+  - `editarReflexion`
+  - `editarFrase`
+  - `editarApunteEstudio`
+- Integración completa del sistema de edición en `editarEntrada(...)`.
+- Posibilidad de conservar valores actuales pulsando ENTER.
+- Mensajes de confirmación por consola tras cada edición.
+- Validación de tipo usando `instanceof`.
+
+### ✅ Mejorado
+- Evitado uso erróneo de `ArrayList.get(id)` al buscar por identificador único.
+- Refactor del flujo de selección para hacer la edición más robusta y modular.
+
+### ⏱️ Duración estimada: 90 minutos
 
 --- 
 ## [1.4.0] - 2025-05-26

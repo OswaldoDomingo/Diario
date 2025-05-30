@@ -1,6 +1,29 @@
 # 🕓 Registro de Tiempo y Hitos - Proyecto Java Diario
 
 #### Este documento recoge el seguimiento diario del desarrollo del proyecto **Java Diario**, incluyendo las horas dedicadas y los avances alcanzados en cada sesión.
+---
+
+# 🗓️ Progreso del proyecto - Diario en Java
+
+## 🧪 Día: 28/05/2025
+**Duración**: 90 minutos
+
+### ✅ Tareas realizadas:
+- Se ha corregido el error crítico `IndexOutOfBoundsException` al buscar entradas por ID.
+- Se ha implementado correctamente el método `editarEntrada(ArrayList, id)` con control de tipo dinámico.
+- Se han creado los métodos individuales de edición:
+  - ApunteLibro: edición completa de campos relevantes.
+  - ReflexionPersonal: edición de fecha y nota.
+  - FraseCelebre: edición de fecha, nota y autor.
+  - ApunteEstudio: edición de fecha, materia, tema, subtema y nota.
+- Validación de entrada de usuario.
+- Confirmación visual del resultado tras cada edición.
+- Planificación para evitar modificar el tipo de entrada ni el ID.
+
+### 🛠️ Pendiente:
+- Revisión de Scanner compartido para evitar múltiples instancias.
+- Mejoras de validación para la fecha.
+
 
 ---
 ### 🗓️ 26 de mayo de 2025 - Jornada completada

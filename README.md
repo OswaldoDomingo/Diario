@@ -36,6 +36,18 @@ Este proyecto es una aplicación de diario personal desarrollada en Java. Su obj
 - 💾 **Almacenamiento binario (`diario.dat`)**: Serialización de objetos.
 - 📤 **Exportar** a `.txt` y `.csv` (con separador `;` para Excel).
 - 🧹 **Borrado individual o por tipo de entrada**.
+### ✏️ Edición de entradas
+
+- Se ha implementado la funcionalidad para **editar entradas existentes** del diario.  
+- Cada tipo de entrada tiene su propio método de edición adaptado a sus campos específicos.
+
+- Tipos soportados:
+- - ApunteLibro
+- - ReflexionPersonal
+- -  FraseCelebre
+- -  ApunteEstudio
+
+```La edición permite conservar los valores actuales pulsando simplemente ENTER.```
 
 ---
 
