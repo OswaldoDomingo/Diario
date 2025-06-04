@@ -229,6 +229,7 @@ public class MenuBorrados {
             scanner.next(); // descarta entrada inválida
         }
         int id = scanner.nextInt();
+        scanner.nextLine(); // limpiar salto de línea pendiente Borrar la nueva línea sobrante después de leer el ID de la entrada en el submenú de borrado.
 
         // Buscar dentro de entradas si Id pertenece a una entrada del tipo especificado
         boolean encontrada = false;
